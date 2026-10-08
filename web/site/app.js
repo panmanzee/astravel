@@ -1,0 +1,23 @@
+import { route, render } from './core.js';
+import { loginView, landingView } from './views.js';
+import { profileView, otherProfileView, exploreView, placeView } from './views2.js';
+import { tripView } from './trip.js';
+import { dashView, usersView, reportsView, rolesView, auditView, settingsView } from './admin.js';
+
+route('/', landingView);
+route('/login', loginView);
+route('/explore', exploreView);
+route('/place/:id', placeView);
+route('/plan', tripView('create'), { auth: true });
+route('/trip/new', tripView('create'), { auth: true });
+route('/trip/:id/edit', tripView('edit'), { auth: true });
+route('/trip/:id', tripView('view'));
+route('/profile', profileView, { auth: true });
+route('/u/:id', otherProfileView);
+route('/admin', dashView, { admin: true });
+route('/admin/users', usersView, { admin: true });
+route('/admin/reports', reportsView, { admin: true });
+route('/admin/roles', rolesView, { admin: true });
+route('/admin/audit', auditView, { admin: true });
+route('/admin/settings', settingsView, { admin: true });
+render();

@@ -1,0 +1,124 @@
+/* ASTRAVEL — recreated from the Figma export (1440px frames). Tokens measured from the design file. */
+@font-face{font-family:'Protest Strike';src:url(/fonts/protest-strike-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Sans';src:url(/fonts/dm-sans-400-700-normal.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Roboto';src:url(/fonts/roboto-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Roboto';src:url(/fonts/roboto-500-normal.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Roboto';src:url(/fonts/roboto-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Inter';src:url(/fonts/inter-400-700-normal.woff2) format('woff2');font-weight:400 700;font-display:swap}
+
+:root{
+  --bg:#f8fafc; --ink:#0f172a; --blue:#60a5fa; --blue-600:#3b82f6; --blue-50:#eff6ff; --blue-100:#dbeafe;
+  --line:#e2e8f0; --rose:#fda4af; --rose-100:#fecdd3; --muted:#6b7280; --slate:#334155; --soft:#f3f4f6;
+  --display:'Protest Strike',system-ui,sans-serif; --body:'DM Sans',system-ui,sans-serif; --ui:'Roboto',system-ui,sans-serif; --adm:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--blue-600);outline-offset:2px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:8px;z-index:99}
+.skip:focus{left:8px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;margin:0;color:var(--ink)}
+
+/* ---------- navbar / footer ---------- */
+.nav{height:56px;border-bottom:2px solid var(--line);display:flex;align-items:center;padding:0 24px 0 30px;background:var(--bg);position:sticky;top:0;z-index:30;flex:none}
+.logo{display:flex;align-items:center;gap:6px;margin-right:auto}
+.logo img{width:16px;height:14px}
+.logo span{font-family:var(--display);font-size:16px;line-height:20px;background:linear-gradient(90deg,#60a5fa 0%,#fda4af 100%);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.01em}
+.nav-links{display:flex;align-items:center;gap:0}
+.nav-links a,.nav-links button{font:400 14px/17px var(--ui);color:var(--ink);padding:0 24px;background:none;border:0;display:inline-flex;align-items:center;height:32px;white-space:nowrap}
+.nav-links a:hover{color:var(--blue-600)}
+.nav-links a.on{color:var(--blue-600)}
+.pill{background:var(--blue)!important;color:#fff!important;border-radius:16px;padding:0 12px!important;margin-left:12px}
+.pill:hover{background:var(--blue-600)!important}
+.menu-wrap{position:relative}
+.menu{position:absolute;right:0;top:40px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px -12px rgba(15,23,42,.25);padding:8px;min-width:190px;display:none;z-index:40}
+.menu.open{display:block}
+.menu a,.menu button{display:flex;width:100%;height:auto;padding:10px 14px;border-radius:10px;font:400 14px var(--ui);text-align:left}
+.menu a:hover,.menu button:hover{background:var(--blue-50)}
+.foot{border-top:4px solid var(--line);height:100px;display:flex;align-items:center;justify-content:center;font:400 14px/17px var(--ui);flex:none;margin-top:auto}
+main{flex:1 0 auto;width:100%}
+
+/* ---------- shared bits ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:24px;border:0;background:var(--blue);color:#fff;font:400 14px var(--ui);padding:0 16px;transition:background .15s,transform .15s}
+.btn:hover{background:var(--blue-600)}
+.btn:active{transform:scale(.97)}
+.btn.soft{background:var(--line);color:var(--ink)}
+.btn.soft:hover{background:#cbd5e1}
+.btn.ghost{background:transparent;border:1px solid var(--blue);color:var(--blue)}
+.btn.ghost:hover{background:var(--blue-50)}
+.circle{width:48px;height:48px;border-radius:50%;border:1px solid var(--blue);background:transparent;color:var(--blue);display:inline-grid;place-items:center;padding:0}
+.circle:hover{background:var(--blue-50)}
+.circle.sm{width:36px;height:36px}
+.circle.fill{background:var(--blue);color:#fff}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.tag{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:12px;border:1px solid var(--blue);color:var(--blue);font:400 12px var(--ui);white-space:nowrap}
+.tag.fill{background:var(--blue);color:#fff}
+.tag.add{padding:0;width:28px;height:28px;justify-content:center;border-radius:50%}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:24px;font:400 14px var(--ui);z-index:90;animation:tin .25s ease}
+@keyframes tin{from{opacity:0;transform:translate(-50%,10px)}}
+.loading{display:grid;place-items:center;min-height:50vh;color:var(--muted)}
+
+/* ---------- login ---------- */
+.login{min-height:715px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.login h2{font-size:20px;line-height:24px}
+.login h1{font-size:57px;line-height:69px;margin:23px 0 22px}
+.google{height:64px;border-radius:32px;padding:0 25px;font:500 18px var(--body);gap:10px;width:306px}
+
+/* ---------- landing ---------- */
+.hero{text-align:center;padding-top:79.6px}
+.hero h1{font-size:57px;line-height:64px}
+.hero p{font:400 18px/30px var(--body);margin:23.4px auto 0;max-width:640px}
+.hero .cta{display:flex;justify-content:center;gap:16px;margin-top:25px}
+.hero .cta .btn{height:48px;border-radius:24px;padding:0 16px}
+.hero-img{width:856px;max-width:calc(100% - 48px);height:480px;margin:48px auto 0;border-radius:48px;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 49.5%}
+.sec{text-align:center}
+.sec h2{font-size:57px;line-height:70px}
+.can{padding-top:156px}
+.can-grid{display:grid;grid-template-columns:repeat(3,364px);justify-content:center;margin-top:46px}
+.can-grid>div{padding:0 8px}
+.can-grid img{width:160px;height:160px;border-radius:50%;margin:0 auto}
+.can-grid h3{font-size:24px;line-height:30px;margin:17px 0 16px}
+.can-grid p{font:400 16px/24px var(--ui);margin:0;padding:0 2px;color:#1e293b}
+.can .btn{margin-top:49px;width:86px;padding:0}
+.rec{padding-top:156px}
+.rec p.lead{font:400 18px/30px var(--body);margin:3px auto 0;max-width:780px}
+.rec-grid{display:flex;justify-content:center;gap:24px;margin-top:48px;padding:0 20px}
+.rcard{position:relative;border-radius:32px;overflow:hidden;height:522px;flex:none;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .3s}
+.rcard:hover{transform:translateY(-6px)}
+.rcard>img{position:absolute;inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px);max-width:none;object-fit:cover;filter:blur(4px);z-index:0}
+.rcard>*:not(img){position:relative;z-index:1}
+.rcard.big{width:480px;padding:0 105px}.rcard.col{width:261px;padding:0 60px}
+.rcard h3{overflow-wrap:anywhere;hyphens:manual}
+.rcard .badge{background:var(--rose-100);color:#fff;font:400 12px/15px var(--ui);padding:5px 8px;border-radius:12px;margin-bottom:6px}
+.rcard h3{color:#fff;font-size:57px;line-height:64px}
+.rcard p{font:400 16px/24px var(--ui);margin:10px 0 0;max-width:270px}
+.rec .btn{margin-top:47px;padding:0 16px;width:108px}
+.team{padding-top:156px}
+.team .sub{font:400 18px/22px var(--body);margin-top:7px}
+.team-grid{display:grid;grid-template-columns:repeat(3,280px);column-gap:32px;row-gap:0;justify-content:center;margin-top:53px;text-align:left}
+.member{height:468px}
+.member img{width:280px;height:360px;object-fit:cover;border-radius:32px}
+.member h3{font-size:24px;line-height:30px;margin-top:17px}
+.member h4{font-size:20px;line-height:24px;margin-top:18px}
+.land-end{height:64px}
+
+@media (max-width:1100px){
+  .rec-grid{flex-wrap:wrap}
+  .can-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,280px)}
+}
+@media (max-width:640px){
+  .nav{padding:0 10px 0 14px}
+  .nav-links a,.nav-links button{padding:0 9px}
+  .hero h1,.sec h2,.login h1{font-size:40px;line-height:46px}
+  .hero-img{height:260px;border-radius:32px}
+  .team-grid{grid-template-columns:280px}
+  .rcard.big,.rcard.col{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
